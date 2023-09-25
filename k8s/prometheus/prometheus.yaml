@@ -16,7 +16,11 @@ data:
       - job_name: 'flask-app'
         static_configs:
           - targets: ['flask-app-service:5000']
-
+      - job_name: flask-app-custom-metrics
+        metrics_path: /custom_metrics
+        static_configs:
+        - targets:
+          - flask-app-service:5000
 ---
 apiVersion: v1
 kind: Service
